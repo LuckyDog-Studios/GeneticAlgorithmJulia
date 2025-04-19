@@ -1,4 +1,4 @@
-# This is my main method
+# THIS WAS USED TO MAKE THE PLOTS
 using Plots
 # Import my code
 include("src/Individual.jl")
@@ -8,10 +8,9 @@ include("src/GeneticAlg.jl")
 
 
 const TARGET = "NOAH JANSSEN"
-pop_size = 15000
+pop_size = 4000
 selection_size = Int(pop_size/4)
 
-# Creates a Vector of Individuals with size pop_size
 population = [create_individual(TARGET) for _ in 1:pop_size]
 
 apes = 0
@@ -20,7 +19,7 @@ generations = 0
 x=Vector{Float64}(undef, 100) # mutation rate
 y=Vector{Float64}(undef, 100) # generations
 
-mutation_rate = collect(range(0.001, stop=0.0001, length=100))  # algorithm loop
+mutation_rate = collect(range(0.003, stop=0.00003, length=100))  # algorithm loop
 for i in 1:100
     while !has_perfect_fitness(population)
         global apes += pop_size
@@ -43,7 +42,7 @@ plt = plot(
     x, y,
     xlabel = "Mutation Rate",
     ylabel = "Generations",
-    title = "Generations vs Mutation Rate (pop_size=15000)",
+    title = "Generations vs Mutation Rate (pop_size=4000)",
     lw = 2,
     marker = :circle,
     label = "Mutation Rate"
@@ -51,4 +50,4 @@ plt = plot(
 
 
 
-savefig(plt, "mrvsgenerations_2.png")
+savefig(plt, "mrvsgenerations_3.png")

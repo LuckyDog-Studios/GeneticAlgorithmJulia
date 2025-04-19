@@ -1,4 +1,4 @@
-# THIS METHOD WAS IMPLEMENTED USING THE HeapSort.java, I used chatgpt to transform it into julia code
+# THIS METHOD WAS IMPLEMENTED USING THE HeapSort.java
 
 
 # import Individual code

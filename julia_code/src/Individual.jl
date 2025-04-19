@@ -1,5 +1,5 @@
-ALPHABET = collect('A':'Z')  # Creates an array of characters from 'A' to 'Z'
-ALPHABET = vcat(ALPHABET, ' ')  # Adds the space character to the array
+ALPHABET = collect('A':'Z') 
+ALPHABET = vcat(ALPHABET, ' ')
 
 # Individual object
 mutable struct Individual
@@ -7,21 +7,21 @@ mutable struct Individual
     fitness::Float64
 end
 
-# Encodes fitness levels for an Individual
+# encodes fitness levels for an Individual
 function encode_fitness(ind::Individual, target::String)
     correct_letters = 0
     c = ind.chromosome
-    target_length = length(target)  # Now directly using the input target length
+    target_length = length(target)
     for i in 1:target_length
         if c[i] == target[i]
             correct_letters += 1
         end
     end
-    # Return normalized fitness based on correct letters
+    # normalizes fitness based on correct letters
     ind.fitness = correct_letters / target_length
 end
 
-# Creates an Individual
+# creates an Individual
 function create_individual(target::String)
     chromosome = randomize_chromosome(target)
 
